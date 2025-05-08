@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class PlayerSO : MonoBehaviour
+namespace Player
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [CreateAssetMenu(fileName = "Player", menuName = "ScriptableObjects/player")]
+    public class PlayerSO : ScriptableObject
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public int speed;
     }
 }

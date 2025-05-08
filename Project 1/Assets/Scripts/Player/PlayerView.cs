@@ -1,16 +1,19 @@
+using System;
 using UnityEngine;
 
-public class PlayerView : MonoBehaviour
+namespace Player
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PlayerView : MonoBehaviour
     {
-        
-    }
+        private PlayerController PlayerController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void SetController(PlayerController playerController)
+        {
+            this.PlayerController = playerController;
+        }
+
+        private void FixedUpdate()
+        {
+        }
     }
 }
