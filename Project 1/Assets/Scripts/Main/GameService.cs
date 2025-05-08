@@ -13,6 +13,7 @@ namespace Main
         #endregion
 
         #region Serilized Fields
+        [Header("Player")]
         [SerializeField] private PlayerView playerView;
         [SerializeField] private PlayerSO playerSO;
 
@@ -25,7 +26,7 @@ namespace Main
             base.Awake();
             eventService = new EventService();
             playerService = new PlayerService(playerView, playerSO);
-            
+
         }
     }
 }
