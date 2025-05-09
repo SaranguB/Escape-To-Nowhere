@@ -1,16 +1,25 @@
-using UnityEngine;
+using Enemy;
+using ObjectPool;
+using System;
 
-public class EnemyPool : MonoBehaviour
+namespace Enemy
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class EnemyPool : GenericObjectPool<EnemyController>
     {
-        
-    }
+        private EnemyData dataToUse;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public EnemyController GetEnemy<T>(EnemyData enemyData) where T : EnemyController
+        {
+            dataToUse = enemyData;
+            return GetItem<T>();
+        }
+
+        protected override EnemyController CreateItem<T>()
+        {
+            if(typeof(T) == typeof(VikingEnemyController))
+                return new VikingEnemyController(dataToUse);
+            else
+                throw new NotSupportedException($"Power-up type '{typeof(T)}' is not supported.");
+        }
     }
 }

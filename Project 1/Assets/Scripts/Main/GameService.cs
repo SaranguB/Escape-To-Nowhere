@@ -19,6 +19,9 @@ namespace Main
         [SerializeField] private PlayerView playerView;
         [SerializeField] private PlayerSO playerSO;
 
+        [Header("Enemy")]
+        [SerializeField] private EnemySO enemySO;
+        [SerializeField] private BoxCollider enemySpawnArea;
         #endregion
 
 
@@ -28,7 +31,13 @@ namespace Main
             base.Awake();
             eventService = new EventService();
             playerService = new PlayerService(playerView, playerSO);
+            enemyService = new EnemyService(enemySO, enemySpawnArea);
 
+        }
+
+        private void Update()
+        {
+            enemyService?.Update();
         }
     }
 }
