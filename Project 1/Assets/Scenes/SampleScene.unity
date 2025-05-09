@@ -183,10 +183,10 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 2cd8500a21b3463478e2034624c9b8f4, type: 2}
   m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
+  m_TreeBillboardDistance: 70
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 177
+  m_DetailObjectDistance: 100
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -299,7 +299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13909587, y: 0.7867683, z: -0.1920312, w: 0.56988776}
+  m_LocalRotation: {x: 0.13909589, y: 0.78676826, z: -0.19203117, w: 0.5698878}
   m_LocalPosition: {x: 393.4, y: 65.84, z: 631}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
@@ -420,7 +420,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.54
+    m_Strength: 0.473
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.1
@@ -690,15 +690,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1679583567907790754, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13909589
+      value: 0.13909587
       objectReference: {fileID: 0}
     - target: {fileID: 1679583567907790754, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7867683
+      value: 0.78676826
       objectReference: {fileID: 0}
     - target: {fileID: 1679583567907790754, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.1920312
+      value: -0.19203117
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024706964024352967, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 2539131729542034003, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -743,6 +747,10 @@ PrefabInstance:
     - target: {fileID: 7413603435923107869, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8273193846779797842, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
+      propertyPath: Lens.FarClipPlane
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

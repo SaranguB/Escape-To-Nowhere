@@ -1,3 +1,4 @@
+using Enemy;
 using Events;
 using Player;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Main
         #region Dependencies
         public PlayerService playerService;
         public EventService eventService;
+        public EnemyService enemyService;
         #endregion
 
         #region Serilized Fields
