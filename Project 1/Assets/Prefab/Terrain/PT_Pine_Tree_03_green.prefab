@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2028470415565354925}
   - component: {fileID: 2812287724108380338}
   - component: {fileID: 1394057832663195253}
-  - component: {fileID: 3713665847257045636}
-  m_Layer: 0
+  - component: {fileID: 6477946221692315165}
+  m_Layer: 3
   m_Name: PT_Pine_Tree_03_green_LOD0
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3713665847257045636
+--- !u!136 &6477946221692315165
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,10 +107,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.27
-  m_Height: 8.71
+  m_Radius: 0.33
+  m_Height: 9.165267
   m_Direction: 1
-  m_Center: {x: -0.030776441, y: 3.7, z: 0.0074507594}
+  m_Center: {x: -0.030776441, y: 4.058229, z: 0.0074507594}
 --- !u!1 &1720328307436147672
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,9 +122,9 @@ GameObject:
   - component: {fileID: 6236222268586821143}
   - component: {fileID: 8379061657498843178}
   - component: {fileID: 7013654394060798706}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PT_Pine_Tree_03_green_LOD2
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,9 +208,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6894979521318456901}
   - component: {fileID: 1870679391148259636}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PT_Pine_Tree_03_green
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,9 +271,9 @@ GameObject:
   - component: {fileID: 8538897729451581637}
   - component: {fileID: 6203392517139920881}
   - component: {fileID: 8000319770140492376}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PT_Pine_Tree_03_green_LOD1
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

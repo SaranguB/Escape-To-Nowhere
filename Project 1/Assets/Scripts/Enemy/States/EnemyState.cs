@@ -2,7 +2,8 @@ namespace Enemy
 {
     public enum EnemyStates
     {
-        idle,
-        dead,
+        Idle,
+        Attack,
+        Dead,
     }
 }

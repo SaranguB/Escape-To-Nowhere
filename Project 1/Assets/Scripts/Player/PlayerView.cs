@@ -5,28 +5,37 @@ namespace Player
 {
     public class PlayerView : MonoBehaviour
     {
-        private PlayerController PlayerController;
+        private PlayerController playerController;
 
         [SerializeField] private Rigidbody playerRB;
 
         public void SetController(PlayerController playerController)
         {
-            this.PlayerController = playerController;
+            this.playerController = playerController;
         }
 
         private void Start()
         {
-            PlayerController.ChangeState(PlayerState.Move);
+            playerController.ChangeState(PlayerState.Move);
         }
 
         private void Update()
         {
-            PlayerController.UpdateState();
+            playerController.UpdateState();
+
+            playerController.OnPlayerPositionChanged(playerRB.position);
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            /*if (other.gameObject.CompareTag("tree"))
+                Debug.Log("colliding");*/
+
         }
 
         private void FixedUpdate()
         {
-            PlayerController.FixedUpdateState();
+            playerController.FixedUpdateState();
         }
 
         public Rigidbody GetPlayerRigidBody()

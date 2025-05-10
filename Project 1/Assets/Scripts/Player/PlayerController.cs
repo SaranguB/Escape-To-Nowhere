@@ -1,3 +1,4 @@
+using Main;
 using System;
 using UnityEngine;
 using UnityEngine.XR;
@@ -47,5 +48,10 @@ namespace Player
 
         public PlayerSO GetPlayerSO()
             => playerModel.playerSO;
+
+        public void OnPlayerPositionChanged(Vector3 position)
+        {
+           GameService.Instance.eventService.onPlayerPositionChanged.InvokeEvent(position);
+        }
     }
 }

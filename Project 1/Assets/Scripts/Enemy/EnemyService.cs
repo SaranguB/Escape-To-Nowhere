@@ -98,7 +98,7 @@ namespace Enemy
             switch (typeToFetch)
             {
                 case EnemyType.Viking:
-                    return enemyPool.GetEnemy<VikingEnemyController>(fecthedData);
+                    return enemyPool.GetEnemy<VikingController>(fecthedData);
                 default:
                     throw new Exception($"Failed to Create EnemyController for: {typeToFetch}");
             }

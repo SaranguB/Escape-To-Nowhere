@@ -16,8 +16,8 @@ namespace Enemy
 
         protected override EnemyController CreateItem<T>()
         {
-            if(typeof(T) == typeof(VikingEnemyController))
-                return new VikingEnemyController(dataToUse);
+            if(typeof(T) == typeof(VikingController))
+                return new VikingController(dataToUse);
             else
                 throw new NotSupportedException($"Power-up type '{typeof(T)}' is not supported.");
         }
