@@ -2,6 +2,7 @@ using Enemy;
 using Events;
 using Player;
 using PowerUps;
+using System;
 using UnityEngine;
 using Utilities;
 
@@ -20,10 +21,10 @@ namespace Main
         [Header("Player")]
         [SerializeField] private PlayerView playerView;
         [SerializeField] private PlayerSO playerSO;
+        [SerializeField] private BoxCollider entitySpawnArea;
 
         [Header("Enemy")]
         [SerializeField] private EnemySO enemySO;
-        [SerializeField] private BoxCollider enemySpawnArea;
 
         [Header("PowerUp")]
         [SerializeField] private PowerUpSO powerUpSO;
@@ -36,13 +37,15 @@ namespace Main
             base.Awake();
             eventService = new EventService();
             playerService = new PlayerService(playerView, playerSO);
-            powerUpService = new PowerUpService(powerUpSO);
-            enemyService = new EnemyService(enemySO, enemySpawnArea);
+            powerUpService = new PowerUpService(powerUpSO, entitySpawnArea);
+            enemyService = new EnemyService(enemySO, entitySpawnArea);
         }
+
 
         private void Update()
         {
             enemyService?.Update();
+            powerUpService?.Update();
         }
     }
 }

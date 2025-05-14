@@ -15,15 +15,29 @@ namespace Player
         private PlayerModel playerModel;
         public PlayerModel PlayerModel => playerModel;
 
+        private PlayerSO playerSO;
         public PlayerController(PlayerView playerView, PlayerSO playerSO)
         {
             this.playerView = playerView;
             playerModel = new PlayerModel(playerSO);
-
+            this.playerSO = playerSO;
             this.playerView.SetController(this);
 
             CreateStateMachine();
             ChangeState(PlayerState.Idle);
+
+            SubscribeToEvents();
+            UnSubscribeToEvents();
+        }
+
+        private void UnSubscribeToEvents()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SubscribeToEvents()
+        {
+            throw new NotImplementedException();
         }
 
         public void ChangeState(PlayerState playerState)
@@ -51,7 +65,10 @@ namespace Player
 
         public void OnPlayerPositionChanged(Vector3 position)
         {
-           GameService.Instance.eventService.onPlayerPositionChanged.InvokeEvent(position);
+            GameService.Instance.eventService.onPlayerPositionChanged.InvokeEvent(position);
         }
+
+        public void ToggleBoosterSpeed(bool boosterSpeedActive)
+            => playerModel.moveSpeed = boosterSpeedActive ? playerSO.boosterSpeed : playerSO.moveSpeed;
     }
 }

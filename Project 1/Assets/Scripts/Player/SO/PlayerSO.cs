@@ -8,5 +8,7 @@ namespace Player
         public float moveSpeed;
         public float turnSpeed;
         public float groundCheckDistance;
+
+        public float boosterSpeed;
     }
 }

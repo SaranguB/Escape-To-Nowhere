@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 276957382899590056}
   - component: {fileID: 8788982005502014908}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1426555009412548145}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone.003_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3024568497790691558}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1023681908497560061}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 8906220816034030570}
   - component: {fileID: 2697840143927643326}
   - component: {fileID: 6034628796164855960}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Viking_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 158489463102906082}
   - component: {fileID: 3100620282490095038}
   - component: {fileID: 257468525832416220}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VikingHelmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 5266330796585659108}
   - component: {fileID: 3357458378767416458}
   - component: {fileID: 1826995171132232146}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CollisionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3194788723815290180}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone.003_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4659845495218698659}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone.003_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8531843577621362185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone.003_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}

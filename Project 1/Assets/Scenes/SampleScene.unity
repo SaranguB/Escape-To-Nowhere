@@ -598,8 +598,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerView: {fileID: 6705402075213272379}
   playerSO: {fileID: 11400000, guid: 5921bba6597ca6745a4808556951b825, type: 2}
+  entitySpawnArea: {fileID: 1200908768}
   enemySO: {fileID: 11400000, guid: 5442eec45747ec54bbb9aa316f7429bc, type: 2}
-  enemySpawnArea: {fileID: 1200908768}
+  powerUpSO: {fileID: 11400000, guid: 614f74b3771991448b0234b57a2974fe, type: 2}
 --- !u!65 &1200908768 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 8518066990277701723, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
@@ -702,63 +703,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2984341806427827439
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4597576574504900583, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_Name
-      value: PowerUpContainerBlueFlame
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 425.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 42.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 618
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676980347324074073, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
 --- !u!1001 &4241205093966670006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -807,17 +751,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6330159789934424909, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7413603435923107869, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8518066990277701723, guid: 3af777e55a23e644eb53b9784044b1dd, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -850,4 +786,3 @@ SceneRoots:
   - {fileID: 1061226584}
   - {fileID: 1564283903}
   - {fileID: 1897555433}
-  - {fileID: 2984341806427827439}

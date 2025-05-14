@@ -1,7 +1,7 @@
 using Enemy;
 using System;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
+using UnityEngine.UIElements;
 
 namespace PowerUps
 {
@@ -14,12 +14,13 @@ namespace PowerUps
         private float spawnTimer;
         private BoxCollider powerUpSpawnArea;
 
-        public PowerUpService(PowerUpSO powerUpSO)
+        public PowerUpService(PowerUpSO powerUpSO, BoxCollider powerUpSpawnArea)
         {
             this.powerUpSO = powerUpSO;
             powerUpPool = new PowerUpPool();
             spawnTimer = this.powerUpSO.spawnRate;
             isSpawning = true;
+            this.powerUpSpawnArea = powerUpSpawnArea;
         }
 
         public void Update()
@@ -39,12 +40,12 @@ namespace PowerUps
         {
             if (isSpawning)
             {
-              
+
                 PowerUpType randomPowerUp = (PowerUpType)UnityEngine.Random.Range(0, Enum.GetValues(typeof(PowerUpType)).Length);
-              
+
                 PowerUpController powerUp = FetchPowerUp(randomPowerUp);
 
-                powerUp.Configure(CalculateRandomSpawnPosition());
+                powerUp.Configure(GetSpawnPosition());
             }
         }
 
@@ -63,48 +64,19 @@ namespace PowerUps
 
         public Vector3 GetSpawnPosition()
         {
-            Bounds bounds = powerUpSpawnArea.bounds;
+            Vector3 center = powerUpSpawnArea.center + powerUpSpawnArea.transform.position;
+            Vector3 size = powerUpSpawnArea.size;
 
-            float x = 0f;
-            float z = 0f;
+            Vector3 randomLocal = new Vector3(
+                UnityEngine.Random.Range(-size.x / 2, size.x / 2),
+                UnityEngine.Random.Range(-size.y / 2, size.y / 2),
+                UnityEngine.Random.Range(-size.z / 2, size.z / 2)
+            );
 
-            // Check which side the spawn should happen on
-            int side = UnityEngine.Random.Range(0, 4);
-
-            switch (side)
-            {
-                case 0: // Left side of the bounds
-                    x = bounds.min.x - powerUpSO.spawnOffset;
-                    z = UnityEngine.Random.Range(bounds.min.z - powerUpSO.spawnOffset, bounds.max.z + powerUpSO.spawnOffset);
-                    break;
-                case 1: // Right side of the bounds
-                    x = bounds.max.x + powerUpSO.spawnOffset;
-                    z = UnityEngine.Random.Range(bounds.min.z - powerUpSO.spawnOffset, bounds.max.z + powerUpSO.spawnOffset);
-                    break;
-                case 2: // Top side of the bounds
-                    x = UnityEngine.Random.Range(bounds.min.x - powerUpSO.spawnOffset, bounds.max.x + powerUpSO.spawnOffset);
-                    z = bounds.max.z + powerUpSO.spawnOffset;
-                    break;
-                case 3: // Bottom side of the bounds
-                    x = UnityEngine.Random.Range(bounds.min.x - powerUpSO.spawnOffset, bounds.max.x + powerUpSO.spawnOffset);
-                    z = bounds.min.z - powerUpSO.spawnOffset;
-                    break;
-            }
-
-            float y = GetTerrainHeightAtPosition(x, z);
-
-            return new Vector3(x, y, z);
+            return center + powerUpSpawnArea.transform.rotation * randomLocal;
         }
 
-        private float GetTerrainHeightAtPosition(float x, float z)
-        {
-            RaycastHit hit;
-            Vector3 rayOrigin = new Vector3(x, powerUpSO.rayOrigionYValue, z);
-            if (Physics.Raycast(rayOrigin, Vector3.down, out hit))
-            {
-                return hit.point.y;
-            }
-            return 0f;
-        }
+        public void ReturnPowerUpToPool(PowerUpController powerUpToReturn)
+            => powerUpPool.ReturnItem(powerUpToReturn);
     }
 }

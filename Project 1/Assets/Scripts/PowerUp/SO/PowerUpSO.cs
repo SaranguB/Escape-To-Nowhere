@@ -8,8 +8,6 @@ namespace PowerUps
     public class PowerUpSO : ScriptableObject
     {
         public float spawnRate;
-        public float spawnOffset;
-        public float rayOrigionYValue;
         public List<PowerUpData> powerUpData;
 
     }
@@ -18,7 +16,8 @@ namespace PowerUps
     public struct PowerUpData
     {
         public PowerUpType powerUpType;
-        public PowerUpView powerUpView;
+        public PowerUpView powerUpPrefab;
+        public float powerUpSpawnDuration;
         public float activeDuration;
     }
 }
