@@ -12,8 +12,6 @@ namespace Enemy
         [SerializeField] private Rigidbody enemyRB;
         [SerializeField] private NavMeshAgent navMeshAgent;
 
-        public TreeCollisonManager collisionManager;
-
         public void SetController(EnemyController enemyController)
         {
             this.enemyController = enemyController;
@@ -34,8 +32,6 @@ namespace Enemy
 
         private void OnCollisionEnter(Collision other)
         {
-
-
             if (other.collider is not TerrainCollider)
             {
                 enemyController.DestroyEnemy();

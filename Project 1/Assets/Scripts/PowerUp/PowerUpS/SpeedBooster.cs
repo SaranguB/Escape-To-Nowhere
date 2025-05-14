@@ -1,3 +1,4 @@
+using Main;
 using UnityEngine;
 
 namespace PowerUps
@@ -14,14 +15,13 @@ namespace PowerUps
         public override void Activate()
         {
             base.Activate();
-            Debug.Log("activated");
+            GameService.Instance.eventService.onSpeedBoosterToggled.InvokeEvent(true);
         }
 
         public override void Deactivate()
         {
             base.Deactivate();
-            Debug.Log("Deactivated");
-
+            GameService.Instance.eventService.onSpeedBoosterToggled.InvokeEvent(false);
         }
     }
 }

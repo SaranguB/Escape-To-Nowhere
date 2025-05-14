@@ -27,17 +27,16 @@ namespace Player
             ChangeState(PlayerState.Idle);
 
             SubscribeToEvents();
-            UnSubscribeToEvents();
-        }
-
-        private void UnSubscribeToEvents()
-        {
-            throw new NotImplementedException();
         }
 
         private void SubscribeToEvents()
         {
-            throw new NotImplementedException();
+            GameService.Instance.eventService.onSpeedBoosterToggled.AddListener(ToggleBoosterSpeed);
+        }
+
+        public void UnSubscribeToEvents()
+        {
+            GameService.Instance.eventService.onSpeedBoosterToggled.RemoveListener(ToggleBoosterSpeed);
         }
 
         public void ChangeState(PlayerState playerState)
@@ -69,6 +68,8 @@ namespace Player
         }
 
         public void ToggleBoosterSpeed(bool boosterSpeedActive)
-            => playerModel.moveSpeed = boosterSpeedActive ? playerSO.boosterSpeed : playerSO.moveSpeed;
+        {
+            playerModel.moveSpeed = boosterSpeedActive ? playerSO.boosterSpeed : playerSO.moveSpeed;
+        }
     }
 }

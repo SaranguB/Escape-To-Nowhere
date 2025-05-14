@@ -43,21 +43,28 @@ namespace PowerUps
         public virtual void Activate()
         {
             isActive = true;
-            StartActivationTimer();
             DisablePowerUp();
+            StartActivationTimer();
         }
 
-        public void StartActivationTimer()
+        public async void StartActivationTimer()
         {
             if (isActive)
             {
-                powerUpView.StartTimer(powerUpData.activeDuration);
+                await Task.Delay(Mathf.RoundToInt(powerUpData.activeDuration * 1000));
+                Deactivate();
             }
         }
 
         public virtual void Deactivate()
         {
             isActive = false;
+            ReturnPowerUpToPool();
+
+        }
+
+        private void ReturnPowerUpToPool()
+        {
             GameService.Instance.powerUpService.ReturnPowerUpToPool(this);
         }
 
@@ -69,7 +76,7 @@ namespace PowerUps
         public void DestroyPowerUp()
         {
             DisablePowerUp();
-            Deactivate();
+            ReturnPowerUpToPool();
         }
     }
 }

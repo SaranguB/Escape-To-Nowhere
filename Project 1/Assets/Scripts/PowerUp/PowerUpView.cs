@@ -17,6 +17,14 @@ namespace PowerUps
         {
             StartCoroutine(Deactivate(activeDuration));
         }
+        private IEnumerator Deactivate(float activeDuration)
+        {
+            Debug.Log("coruotine");
+            yield return new WaitForSeconds(activeDuration);
+            Debug.Log("deactivate1");
+            powerUpController.Deactivate();
+        }
+
 
         public void StartPowerUpTimer(float powerUpSpawnDuration)
         {
@@ -29,12 +37,7 @@ namespace PowerUps
             powerUpController.DestroyPowerUp();
         }
 
-        private IEnumerator Deactivate(float activeDuration)
-        {
-            yield return new WaitForSeconds(activeDuration);
-            powerUpController.Deactivate();
-        }
-
+       
         private void OnCollisionEnter(Collision other)
         {
             powerUpController?.PowerUpTriggerEntered(other.gameObject);

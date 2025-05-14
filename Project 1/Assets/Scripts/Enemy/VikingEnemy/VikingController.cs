@@ -15,7 +15,6 @@ namespace Enemy
 
             enemyView = Object.Instantiate(enemyData.enemyPrefab);
             enemyView.SetController(this);
-            enemyView.collisionManager.SetController(this);
             CreateStateMachine();
             ChangeState(EnemyStates.Idle);
         }
