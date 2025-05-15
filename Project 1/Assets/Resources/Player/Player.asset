@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  turnSpeed: 150
+  turnSpeed: 200
   groundCheckDistance: 2
   boosterSpeed: 20

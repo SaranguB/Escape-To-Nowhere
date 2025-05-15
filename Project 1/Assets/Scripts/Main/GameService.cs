@@ -6,6 +6,7 @@ using System;
 using UI;
 using UnityEngine;
 using Utilities;
+using VFX;
 
 namespace Main
 {
@@ -17,6 +18,7 @@ namespace Main
         public EnemyService enemyService;
         public PowerUpService powerUpService;
         public UIService uiService;
+        public VFXService vfxService;
         #endregion
 
         #region Serilized Fields
@@ -30,6 +32,9 @@ namespace Main
 
         [Header("PowerUp")]
         [SerializeField] private PowerUpSO powerUpSO;
+
+        [Header("VFX")]
+        [SerializeField] VFXView vfxView;
         #endregion
 
         public GameState gameState { get; private set; }
@@ -40,6 +45,7 @@ namespace Main
         {
             base.Awake();
             eventService = new EventService();
+            vfxService = new VFXService(vfxView);
             playerService = new PlayerService(playerView, playerSO);
             powerUpService = new PowerUpService(powerUpSO, entitySpawnArea);
             enemyService = new EnemyService(enemySO, entitySpawnArea);

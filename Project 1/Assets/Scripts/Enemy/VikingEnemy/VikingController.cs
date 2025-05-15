@@ -39,10 +39,16 @@ namespace Enemy
             vikingStateMachine.Update();
         }
 
-        public override void DestroyEnemy()
+        public override void DestroyEnemy(VFX.VFXType enemyDeathEffect, Vector3 position)
         {
+            base.DestroyEnemy(enemyDeathEffect, position);
             enemyView.gameObject.SetActive(false);
             GameService.Instance.enemyService.ReturnEnemyToPool(this);
+        }
+
+        public override void RemoveEnemy()
+        {
+            enemyView.DestroyEnemy();
         }
     }
 }

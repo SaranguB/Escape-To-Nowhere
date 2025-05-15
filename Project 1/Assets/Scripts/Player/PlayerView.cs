@@ -1,3 +1,4 @@
+using PowerUps;
 using System;
 using UnityEngine;
 
@@ -8,6 +9,14 @@ namespace Player
         private PlayerController playerController;
 
         [SerializeField] private Rigidbody playerRB;
+
+        [SerializeField] private ParticleSystem shieldParticleEffect;
+
+
+        private void OnDestroy()
+        {
+            playerController.UnSubscribeToEvents();
+        }
 
         public void SetController(PlayerController playerController)
         {
@@ -28,9 +37,21 @@ namespace Player
 
         private void OnCollisionEnter(Collision other)
         {
-            /*if (other.gameObject.CompareTag("tree"))
-                Debug.Log("colliding");*/
+            if (other.collider is not TerrainCollider && !other.gameObject.TryGetComponent<PowerUpView>(out _))
+            {
+                if (!playerController.IsShiedActivated())
+                {
+                    //Debug.Log("Failed by colllsion");
+                }
+            }
+        }
 
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Boundary"))
+            {
+                //Debug.Log("Failed by boundary");
+            }
         }
 
         private void FixedUpdate()
@@ -40,5 +61,8 @@ namespace Player
 
         public Rigidbody GetPlayerRigidBody()
             => playerRB;
+
+        public ParticleSystem GetShieldParticleEffect()
+            => shieldParticleEffect;
     }
 }

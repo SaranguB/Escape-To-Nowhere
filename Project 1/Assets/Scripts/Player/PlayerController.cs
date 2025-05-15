@@ -32,11 +32,14 @@ namespace Player
         private void SubscribeToEvents()
         {
             GameService.Instance.eventService.onSpeedBoosterToggled.AddListener(ToggleBoosterSpeed);
+            GameService.Instance.eventService.OnShieldToggled.AddListener(ToggleShield);
         }
 
         public void UnSubscribeToEvents()
         {
             GameService.Instance.eventService.onSpeedBoosterToggled.RemoveListener(ToggleBoosterSpeed);
+            GameService.Instance.eventService.OnShieldToggled.RemoveListener(ToggleShield);
+
         }
 
         public void ChangeState(PlayerState playerState)
@@ -71,5 +74,23 @@ namespace Player
         {
             playerModel.moveSpeed = boosterSpeedActive ? playerSO.boosterSpeed : playerSO.moveSpeed;
         }
+
+        public void ToggleShield(bool shieldActive)
+        {
+            if (shieldActive)
+            {
+                playerModel.isShieldActivated = true;
+                playerView.GetShieldParticleEffect().Play();
+            }
+            else
+            {
+                playerModel.isShieldActivated = false;
+                playerView.GetShieldParticleEffect().Stop();
+            }
+        }
+
+        public bool IsShiedActivated()
+         => playerModel.isShieldActivated;
+
     }
 }

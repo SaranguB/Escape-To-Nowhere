@@ -17,7 +17,7 @@ namespace Enemy
 
         private void SubscribeToEvents()
         {
-           GameService.Instance.eventService.onPlayerPositionChanged.AddListener(SetPlayerPosition);
+            GameService.Instance.eventService.onPlayerPositionChanged.AddListener(SetPlayerPosition);
         }
 
         public void UnSubscribeToEvents()
@@ -40,6 +40,16 @@ namespace Enemy
 
         public abstract void ChangeState(EnemyStates attack);
 
-        public abstract void DestroyEnemy();
+        public virtual void DestroyEnemy(VFX.VFXType enemyDeathEffect, Vector3 position)
+        {
+            PlayEnemyExplosionAtPosition(enemyDeathEffect, position);
+        }
+
+        public void PlayEnemyExplosionAtPosition(VFX.VFXType enemyDeathEffect, Vector3 position)
+        {
+            GameService.Instance.vfxService.PlayVFXAtPosition(enemyDeathEffect, position);
+        }
+
+        public abstract void RemoveEnemy();
     }
 }

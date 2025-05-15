@@ -2,6 +2,8 @@ using Main;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
+using VFX;
 
 namespace Enemy
 {
@@ -11,7 +13,7 @@ namespace Enemy
 
         [SerializeField] private Rigidbody enemyRB;
         [SerializeField] private NavMeshAgent navMeshAgent;
-
+        [SerializeField] private Transform enemyDestroyedVfXPosition;
         public void SetController(EnemyController enemyController)
         {
             this.enemyController = enemyController;
@@ -34,11 +36,14 @@ namespace Enemy
         {
             if (other.collider is not TerrainCollider)
             {
-                enemyController.DestroyEnemy();
+                DestroyEnemy();
             }
         }
 
-
+        public void DestroyEnemy()
+        {
+            enemyController.DestroyEnemy(VFXType.EnemyDeathEffect, enemyDestroyedVfXPosition.position);
+        }
 
         public NavMeshAgent GetNavMeshAgent()
             => navMeshAgent;
