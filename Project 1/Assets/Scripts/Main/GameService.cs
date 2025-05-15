@@ -3,6 +3,7 @@ using Events;
 using Player;
 using PowerUps;
 using System;
+using UI;
 using UnityEngine;
 using Utilities;
 
@@ -15,6 +16,7 @@ namespace Main
         public EventService eventService;
         public EnemyService enemyService;
         public PowerUpService powerUpService;
+        public UIService uiService;
         #endregion
 
         #region Serilized Fields
@@ -30,7 +32,9 @@ namespace Main
         [SerializeField] private PowerUpSO powerUpSO;
         #endregion
 
+        public GameState gameState { get; private set; }
 
+        private float elapsedTime;
 
         protected override void Awake()
         {
@@ -41,11 +45,31 @@ namespace Main
             enemyService = new EnemyService(enemySO, entitySpawnArea);
         }
 
+        private void Start()
+        {
+            ChangeGameState(GameState.Gameplay);
+        }
 
         private void Update()
         {
             enemyService?.Update();
             powerUpService?.Update();
+
+            UpdateTimer();
+        }
+
+        private void UpdateTimer()
+        {
+            if (gameState == GameState.Gameplay)
+            {
+                elapsedTime += Time.deltaTime;
+                uiService.UpdateTimer(elapsedTime);
+            }
+        }
+
+        public void ChangeGameState(GameState newState)
+        {
+            gameState = newState;
         }
     }
 }
