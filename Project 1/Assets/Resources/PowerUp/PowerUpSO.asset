@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fa9ea0449f94a41aadd1554b425233, type: 3}
   m_Name: PowerUpSO
   m_EditorClassIdentifier: 
-  spawnRate: 3
+  spawnRate: 2
   powerUpData:
   - powerUpType: 0
     powerUpPrefab: {fileID: 1306347912813875935, guid: 333a8247889f99a45b51ae0bcbfc3547, type: 3}
+    powerUpSpawnDuration: 10
+    activeDuration: 3
+  - powerUpType: 1
+    powerUpPrefab: {fileID: 4192800476912549239, guid: 346bccc497499da4099b40ffbc808d0a, type: 3}
+    powerUpSpawnDuration: 10
+    activeDuration: 3
+  - powerUpType: 2
+    powerUpPrefab: {fileID: -3158731022250905449, guid: 80f2d4f1cfb0f314b9d7e8c655691182, type: 3}
     powerUpSpawnDuration: 10
     activeDuration: 3

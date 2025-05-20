@@ -1,4 +1,6 @@
+using Main;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Enemy
@@ -12,6 +14,7 @@ namespace Enemy
         private EnemyPool enemyPool;
         private EnemySO enemySO;
         private BoxCollider enemySpawnArea;
+        private List<EnemyController> enemyList = new();
 
         public EnemyService(EnemySO enemySO, BoxCollider enemySpawnArea)
         {
@@ -22,6 +25,17 @@ namespace Enemy
             enemyPool = new EnemyPool();
 
             ResetSpawnTimer();
+            SubscribeToEvents();
+        }
+
+        private void SubscribeToEvents()
+        {
+            GameService.Instance.eventService.OnDestroyerToggled.AddListener(OnDestroyerToggled);
+        }
+
+        public void UnSUbscribeToEvents()
+        {
+            GameService.Instance.eventService.OnDestroyerToggled.RemoveListener(OnDestroyerToggled);
         }
 
         public void Update()
@@ -98,7 +112,9 @@ namespace Enemy
             switch (typeToFetch)
             {
                 case EnemyType.Viking:
-                    return enemyPool.GetEnemy<VikingController>(fecthedData);
+                    EnemyController enemy = enemyPool.GetEnemy<VikingController>(fecthedData);
+                    enemyList.Add(enemy);
+                    return enemy;
                 default:
                     throw new Exception($"Failed to Create EnemyController for: {typeToFetch}");
             }
@@ -115,5 +131,17 @@ namespace Enemy
 
         public void ReturnEnemyToPool(EnemyController enemyToReturn)
             => enemyPool.ReturnItem(enemyToReturn);
+
+        public void OnDestroyerToggled()
+        {
+            if (enemyList.Count > 0)
+            {
+                foreach (EnemyController enemy in enemyList)
+                {
+                    enemy.RemoveEnemy();
+                }
+            }
+            enemyList.Clear();
+        }
     }
 }

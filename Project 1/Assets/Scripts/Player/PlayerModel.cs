@@ -8,7 +8,7 @@ namespace Player
         public float moveSpeed;
         public float turnInput;
         public float turnAmount;
-
+        public bool isShieldActivated = false;
         public PlayerModel(PlayerSO playerSO)
         {
             this.playerSO = playerSO;

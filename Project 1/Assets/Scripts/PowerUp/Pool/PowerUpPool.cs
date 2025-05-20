@@ -15,7 +15,11 @@ public class PowerUpPool : GenericObjectPool<IPowerUp>
     protected override IPowerUp CreateItem<T>()
     {
         if (typeof(T) == typeof(SpeedBooster))
-            return new SpeedBooster(dataToUse);
+            return new SpeedBooster(dataToUse); 
+        if (typeof(T) == typeof(Shield))
+            return new Shield(dataToUse);
+        if (typeof(T) == typeof(Destroyer))
+            return new Destroyer(dataToUse);
         else
             throw new NotSupportedException($"Power-up type '{typeof(T)}' is not supported.");
     }

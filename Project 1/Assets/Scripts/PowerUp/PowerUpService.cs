@@ -57,6 +57,10 @@ namespace PowerUps
             {
                 case PowerUpType.SpeedBooster:
                     return (PowerUpController)powerUpPool.GetPowerUp<SpeedBooster>(fetchedData);
+                case PowerUpType.Shield:
+                    return (PowerUpController)powerUpPool.GetPowerUp<Shield>(fetchedData);
+                case PowerUpType.Destroyer:
+                    return (PowerUpController)powerUpPool.GetPowerUp<Destroyer>(fetchedData);
                 default:
                     throw new Exception($"Failed to Create PowerUpController for: {typeToFetch}");
             }
