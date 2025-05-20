@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class MainMenuUIView : MonoBehaviour
+    public class MainMenuUIView : IUIView
     {
         [SerializeField] private GameObject title;
-        [SerializeField] private MainMenuSO menuSO;
+        [SerializeField] private UISO menuSO;
         [SerializeField] private Button playButton;
         [SerializeField] private Button quitButton;
 
@@ -42,22 +42,22 @@ namespace UI
 
         public void OnHoverEnterPlayButton()
         {
-            LeanTween.scale(playButton.gameObject, menuSO.originalScale * menuSO.scaleFactor, menuSO.animationTime).setEaseInOutBack();
+            ScaleButton(playButton.gameObject, menuSO.originalScale * menuSO.scaleFactor, menuSO.animationTime);
         }
 
         public void OnHoverExitPlayButton()
         {
-            LeanTween.scale(playButton.gameObject, menuSO.originalScale, menuSO.animationTime).setEaseInOutBack();
+            ScaleButton(playButton.gameObject, menuSO.originalScale, menuSO.animationTime);
         }
 
         public void OnHoverEnterQuitButton()
         {
-            LeanTween.scale(quitButton.gameObject, menuSO.originalScale * menuSO.scaleFactor, menuSO.animationTime).setEaseInOutBack();
+            ScaleButton(quitButton.gameObject, menuSO.originalScale * menuSO.scaleFactor, menuSO.animationTime);
         }
 
         public void OnHoverExitQuitButton()
         {
-            LeanTween.scale(quitButton.gameObject, menuSO.originalScale, menuSO.animationTime).setEaseInOutBack();
+            ScaleButton(quitButton.gameObject, menuSO.originalScale, menuSO.animationTime);
         }
 
         public void SetController()

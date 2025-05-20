@@ -1,3 +1,5 @@
+using Main;
+using System;
 using UnityEngine;
 
 namespace Player
@@ -8,6 +10,11 @@ namespace Player
         public PlayerService(PlayerView playerView, PlayerSO playerSO)
         {
             playerController = new PlayerController(playerView, playerSO);
+        }
+
+        public void Start()
+        {
+            GameService.Instance.ChangeGameState(GameState.Gameplay);
         }
     }
 }

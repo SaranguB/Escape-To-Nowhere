@@ -1,3 +1,4 @@
+using Audio;
 using Enemy;
 using Events;
 using Player;
@@ -5,6 +6,7 @@ using PowerUps;
 using System;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utilities;
 using VFX;
 
@@ -19,6 +21,7 @@ namespace Main
         public PowerUpService powerUpService;
         public UIService uiService;
         public VFXService vfxService;
+        public SoundService soundService;
         #endregion
 
         #region Serilized Fields
@@ -35,6 +38,11 @@ namespace Main
 
         [Header("VFX")]
         [SerializeField] VFXView vfxView;
+
+        [Header("Sound")]
+        [SerializeField] private SoundSO soundSO;
+        [SerializeField] private AudioSource audioEffectSource;
+        [SerializeField] private AudioSource backgroundMusicSource;
         #endregion
 
         public GameState gameState { get; private set; }
@@ -45,37 +53,70 @@ namespace Main
         {
             base.Awake();
             eventService = new EventService();
-            vfxService = new VFXService(vfxView);
-            playerService = new PlayerService(playerView, playerSO);
-            powerUpService = new PowerUpService(powerUpSO, entitySpawnArea);
-            enemyService = new EnemyService(enemySO, entitySpawnArea);
+            soundService = new SoundService(soundSO, audioEffectSource, backgroundMusicSource);
+
+            if (vfxView != null)
+                vfxService = new VFXService(vfxView);
+
+            if (playerView != null)
+                playerService = new PlayerService(playerView, playerSO);
+
+            if (powerUpSO != null)
+                powerUpService = new PowerUpService(powerUpSO, entitySpawnArea);
+
+            if (enemySO != null)
+                enemyService = new EnemyService(enemySO, entitySpawnArea);
         }
 
         private void Start()
         {
-            ChangeGameState(GameState.Gameplay);
+            playerService?.Start();
+            PlayBackgroundMusic();
         }
 
         private void Update()
         {
-            enemyService?.Update();
-            powerUpService?.Update();
+            if (gameState == GameState.Gameplay)
+            {
+                enemyService?.Update();
+                powerUpService?.Update();
 
-            UpdateTimer();
+                UpdateTimer();
+            }
+
+
+        }
+
+        private void OnDestroy()
+        {
+            enemyService?.UnSubscribeToEvents();
         }
 
         private void UpdateTimer()
         {
-            if (gameState == GameState.Gameplay)
-            {
-                elapsedTime += Time.deltaTime;
-                uiService.UpdateTimer(elapsedTime);
-            }
+
+            elapsedTime += Time.deltaTime;
+            uiService.UpdateTimer(elapsedTime);
+
         }
 
         public void ChangeGameState(GameState newState)
         {
             gameState = newState;
         }
+
+        private void PlayBackgroundMusic()
+        {
+            if (SceneManager.GetActiveScene().name == "MainMenu")
+                soundService.PlayBackgroundMusic(SoundType.MenuBackground);
+            else
+                soundService.PlayBackgroundMusic(SoundType.GameplayBackground);
+        }
+
+        public float GetElapsedTime()
+            => elapsedTime;
+
+        public GameState GetCurrentGameState()
+            => gameState;
     }
 }

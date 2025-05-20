@@ -10,6 +10,7 @@ namespace Enemy
         public T owner { get; set; }
 
         private NavMeshAgent navMeshAgent;
+
         public AttackState(NavMeshAgent navMeshAgent)
         {
             this.navMeshAgent = navMeshAgent;
@@ -17,7 +18,6 @@ namespace Enemy
 
         public void OnStateEnter()
         {
-
         }
 
         public void UpdateState()
@@ -27,21 +27,6 @@ namespace Enemy
 
         public void FixedUpdateState()
         {
-        }
-
-        private void CheckPlayerAttackRange()
-        {
-
-        }
-
-        private void AttackPlayerBetweenDelays()
-        {
-
-        }
-
-        private void Attack()
-        {
-
         }
 
         public void OnStateExit()

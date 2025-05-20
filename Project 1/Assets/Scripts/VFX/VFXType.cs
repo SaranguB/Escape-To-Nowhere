@@ -2,7 +2,7 @@ namespace VFX
 {
     public enum VFXType
     {
-        EnemyDeathEffect,
+        DeathEffect,
         ShieldEffect,
     }
 }

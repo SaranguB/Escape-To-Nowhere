@@ -9,12 +9,14 @@ namespace Events
         public EventController<bool> onSpeedBoosterToggled;
         public EventController<bool> OnShieldToggled;
         public EventController OnDestroyerToggled;
+        public EventController<float> OnPlayerDead;
         public EventService()
         {
             onPlayerPositionChanged = new EventController<Vector3>();
             onSpeedBoosterToggled = new EventController<bool>();
             OnShieldToggled = new EventController<bool>();
             OnDestroyerToggled = new EventController();
+            OnPlayerDead = new EventController<float>();
         }
 
     }

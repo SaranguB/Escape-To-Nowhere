@@ -1,7 +1,4 @@
-using Player;
 using StateMachine;
-using System;
-using UnityEngine;
 using UnityEngine.AI;
 
 namespace Enemy
@@ -18,7 +15,6 @@ namespace Enemy
         {
             AddState(EnemyStates.Idle, new IdleState<VikingController>());
             AddState(EnemyStates.Attack, new AttackState<VikingController>(navMeshAgent));
-            AddState(EnemyStates.Dead, new DeadState<VikingController>());
         }
     }
 }

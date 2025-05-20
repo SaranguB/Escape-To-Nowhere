@@ -1,6 +1,4 @@
 using StateMachine;
-using System.Xml;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace Player
@@ -17,7 +15,6 @@ namespace Player
         {
             AddState(PlayerState.Idle, new IdleState());
             AddState(PlayerState.Move, new MoveState(playerRB));
-            AddState(PlayerState.Dead, new DeadState());
         }
     }
 
@@ -25,6 +22,5 @@ namespace Player
     {
         Idle,
         Move,
-        Dead,
     }
 }

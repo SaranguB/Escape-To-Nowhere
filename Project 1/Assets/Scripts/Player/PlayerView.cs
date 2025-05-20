@@ -1,5 +1,7 @@
+using Main;
 using PowerUps;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Player
@@ -30,9 +32,13 @@ namespace Player
 
         private void Update()
         {
-            playerController.UpdateState();
+            if (playerController.GetCurrentGameState() == GameState.Gameplay)
+            {
+                playerController.UpdateState();
 
-            playerController.OnPlayerPositionChanged(playerRB.position);
+                playerController.OnPlayerPositionChanged(playerRB.position);
+            }
+
         }
 
         private void OnCollisionEnter(Collision other)
@@ -41,22 +47,35 @@ namespace Player
             {
                 if (!playerController.IsShiedActivated())
                 {
-                    //Debug.Log("Failed by colllsion");
+                    StartCoroutine(OnPlayerDead());
                 }
             }
         }
+
 
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("Boundary"))
             {
-                //Debug.Log("Failed by boundary");
+                OnPlayerDead();
             }
         }
 
+        private IEnumerator OnPlayerDead()
+        {
+            playerController.SetPlayerDeathValues(transform.position);
+
+            yield return new WaitForSeconds(2f);
+            playerController.OnPlayerDead();
+        }
+
+
         private void FixedUpdate()
         {
-            playerController.FixedUpdateState();
+            if (playerController.GetCurrentGameState() == GameState.Gameplay)
+            {
+                playerController.FixedUpdateState();
+            }
         }
 
         public Rigidbody GetPlayerRigidBody()

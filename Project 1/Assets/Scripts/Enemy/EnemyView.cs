@@ -42,7 +42,7 @@ namespace Enemy
 
         public void DestroyEnemy()
         {
-            enemyController.DestroyEnemy(VFXType.EnemyDeathEffect, enemyDestroyedVfXPosition.position);
+            enemyController.DestroyEnemy(VFXType.DeathEffect, enemyDestroyedVfXPosition.position);
         }
 
         public NavMeshAgent GetNavMeshAgent()

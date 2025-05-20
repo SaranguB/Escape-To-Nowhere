@@ -33,7 +33,7 @@ namespace Enemy
             GameService.Instance.eventService.OnDestroyerToggled.AddListener(OnDestroyerToggled);
         }
 
-        public void UnSUbscribeToEvents()
+        public void UnSubscribeToEvents()
         {
             GameService.Instance.eventService.OnDestroyerToggled.RemoveListener(OnDestroyerToggled);
         }
@@ -51,9 +51,7 @@ namespace Enemy
         private void SpawnEnemy()
         {
             EnemyType randomEnemy = GetRandomEnemyType();
-
             EnemyController enemy = FetchEnemy(randomEnemy);
-
             enemy.ConfigureEnemy(GetSpawnPosition());
         }
 
@@ -92,7 +90,6 @@ namespace Enemy
             return new Vector3(x, y, z);
         }
 
-
         private float GetTerrainHeightAtPosition(float x, float z)
         {
             RaycastHit hit;
@@ -103,7 +100,6 @@ namespace Enemy
             }
             return 0f;
         }
-
 
         private EnemyController FetchEnemy(EnemyType typeToFetch)
         {

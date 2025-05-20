@@ -9,6 +9,8 @@ namespace Player
         public float turnInput;
         public float turnAmount;
         public bool isShieldActivated = false;
+        public float highScore = 0;
+
         public PlayerModel(PlayerSO playerSO)
         {
             this.playerSO = playerSO;

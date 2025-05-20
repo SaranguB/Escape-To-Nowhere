@@ -1,5 +1,4 @@
 using Main;
-using System;
 using UnityEngine;
 
 namespace Enemy
@@ -27,7 +26,6 @@ namespace Enemy
 
         public virtual void ConfigureEnemy(Vector3 spawnPosition)
         {
-
         }
 
         public void SetPlayerPosition(Vector3 playerPosition)
@@ -36,20 +34,19 @@ namespace Enemy
         public Vector3 GetPlayerPosition()
             => playerPosition;
 
-        public abstract void UpdateStateMachine();
-
-        public abstract void ChangeState(EnemyStates attack);
-
         public virtual void DestroyEnemy(VFX.VFXType enemyDeathEffect, Vector3 position)
-        {
-            PlayEnemyExplosionAtPosition(enemyDeathEffect, position);
+        { 
+           PlayEnemyExplosionAtPosition(enemyDeathEffect, position);
         }
 
         public void PlayEnemyExplosionAtPosition(VFX.VFXType enemyDeathEffect, Vector3 position)
         {
+            GameService.Instance.soundService.PlaySoundEffects(Audio.SoundType.DeathSound);
             GameService.Instance.vfxService.PlayVFXAtPosition(enemyDeathEffect, position);
         }
 
         public abstract void RemoveEnemy();
+        public abstract void UpdateStateMachine();
+        public abstract void ChangeState(EnemyStates attack);
     }
 }
