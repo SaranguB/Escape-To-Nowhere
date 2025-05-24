@@ -1,6 +1,4 @@
-using Main;
 using PowerUps;
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,9 +9,7 @@ namespace Player
         private PlayerController playerController;
 
         [SerializeField] private Rigidbody playerRB;
-
         [SerializeField] private ParticleSystem shieldParticleEffect;
-
 
         private void OnDestroy()
         {
@@ -35,7 +31,6 @@ namespace Player
             if (playerController.GetCurrentGameState() == GameState.Gameplay)
             {
                 playerController.UpdateState();
-
                 playerController.OnPlayerPositionChanged(playerRB.position);
             }
 

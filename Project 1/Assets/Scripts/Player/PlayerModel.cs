@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Player
 {
     public class PlayerModel
@@ -14,7 +12,6 @@ namespace Player
         public PlayerModel(PlayerSO playerSO)
         {
             this.playerSO = playerSO;
-
             moveSpeed = playerSO.moveSpeed;
         }
     }

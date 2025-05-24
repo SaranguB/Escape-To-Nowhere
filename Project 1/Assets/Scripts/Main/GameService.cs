@@ -83,8 +83,6 @@ namespace Main
 
                 UpdateTimer();
             }
-
-
         }
 
         private void OnDestroy()
@@ -97,13 +95,11 @@ namespace Main
 
             elapsedTime += Time.deltaTime;
             uiService.UpdateTimer(elapsedTime);
-
         }
 
         public void ChangeGameState(GameState newState)
-        {
-            gameState = newState;
-        }
+          => gameState = newState;
+
 
         private void PlayBackgroundMusic()
         {

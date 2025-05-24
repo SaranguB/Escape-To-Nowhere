@@ -1,7 +1,5 @@
 using Main;
-using System;
 using UnityEngine;
-using UnityEngine.XR;
 
 namespace Player
 {
@@ -41,11 +39,9 @@ namespace Player
 
         public void ChangeState(PlayerState playerState)
            => playerStateMachine.ChangeState(playerState);
-        
 
         private void CreateStateMachine()
            => playerStateMachine = new PlayerStateMachine(this, playerView.GetPlayerRigidBody());
-        
 
         public void FixedUpdateState()
         {
@@ -62,11 +58,9 @@ namespace Player
 
         public void OnPlayerPositionChanged(Vector3 position)
            => GameService.Instance.eventService.onPlayerPositionChanged.InvokeEvent(position);
-        
 
         public void ToggleBoosterSpeed(bool boosterSpeedActive)
            => playerModel.moveSpeed = boosterSpeedActive ? playerSO.boosterSpeed : playerSO.moveSpeed;
-        
 
         public void ToggleShield(bool shieldActive)
         {
@@ -90,7 +84,6 @@ namespace Player
             GameService.Instance.eventService.OnPlayerDead.InvokeEvent(currentTime);
         }
 
-
         public void SetHighScore(float currentTime)
         {
             playerModel.highScore = PlayerPrefs.GetFloat("HighScore", 0f);
@@ -108,9 +101,8 @@ namespace Player
          => playerModel.isShieldActivated;
 
         public GameState GetCurrentGameState()
-        {
-            return GameService.Instance.GetCurrentGameState();
-        }
+           => GameService.Instance.GetCurrentGameState();
+
 
         public void SetPlayerDeathEffects(Vector3 position)
         {

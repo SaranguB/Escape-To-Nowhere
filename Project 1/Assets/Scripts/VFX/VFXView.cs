@@ -30,7 +30,6 @@ namespace VFX
                 else
                     item.particleSystem.gameObject.SetActive(false);
             }
-
         }
         private void Update()
         {

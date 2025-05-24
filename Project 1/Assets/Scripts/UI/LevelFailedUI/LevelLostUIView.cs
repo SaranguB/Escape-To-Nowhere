@@ -1,6 +1,5 @@
-using System;
+using Main;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -37,7 +36,7 @@ namespace UI
 
         private void OnMainMenuButtonClicked()
         {
-            // PlayButtonSound();
+            PlayButtonSound();
             levelLostUIController.ChangeStateToMainMenu();
             SceneManager.LoadScene("MainMenu");
 
@@ -45,14 +44,13 @@ namespace UI
 
         private void OnReplayButtonClicked()
         {
-            //PlayButtonSound();
+            PlayButtonSound();
             Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadSceneAsync(currentScene.name);
         }
 
-        /* public static void PlayButtonSound()
-            => GameManager.Instance.soundService.PlaySoundEffects(Audio.SoundType.ButtonSound);*/
-
+        public void PlayButtonSound()
+           => GameService.Instance.soundService.PlaySoundEffects(Audio.SoundType.ButtonSound);
 
         private void OnDestroy()
         {
@@ -78,12 +76,6 @@ namespace UI
         public void OnHoverExitMenuButton()
         {
             ScaleButton(mainMenuButton.gameObject, levelFailedSO.originalScale, levelFailedSO.animationTime);
-        }
-
-        public void EnableLevelLostUI()
-        {
-
-
         }
 
         public void SetHighScore()

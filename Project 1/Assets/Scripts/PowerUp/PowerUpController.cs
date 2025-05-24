@@ -3,7 +3,6 @@ using Player;
 using System.Threading.Tasks;
 using UnityEngine;
 
-
 namespace PowerUps
 {
     public class PowerUpController : IPowerUp
@@ -60,7 +59,6 @@ namespace PowerUps
         {
             isActive = false;
             ReturnPowerUpToPool();
-
         }
 
         private void ReturnPowerUpToPool()

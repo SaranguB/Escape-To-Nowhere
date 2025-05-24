@@ -9,7 +9,6 @@ namespace PowerUps
     {
         public float spawnRate;
         public List<PowerUpData> powerUpData;
-
     }
 
     [Serializable]

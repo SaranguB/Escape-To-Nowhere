@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,14 +16,12 @@ namespace PowerUps
         {
             StartCoroutine(Deactivate(activeDuration));
         }
+
         private IEnumerator Deactivate(float activeDuration)
         {
-            Debug.Log("coruotine");
             yield return new WaitForSeconds(activeDuration);
-            Debug.Log("deactivate1");
             powerUpController.Deactivate();
         }
-
 
         public void StartPowerUpTimer(float powerUpSpawnDuration)
         {
@@ -37,7 +34,6 @@ namespace PowerUps
             powerUpController.DestroyPowerUp();
         }
 
-       
         private void OnCollisionEnter(Collision other)
         {
             powerUpController?.PowerUpTriggerEntered(other.gameObject);

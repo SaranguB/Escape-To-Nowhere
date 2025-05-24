@@ -1,5 +1,4 @@
-using System;
-using UnityEditor;
+using Main;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -31,11 +30,16 @@ namespace UI
 
         private void OnQuitButtonClicked()
         {
+            PlayButtonSound();
             Application.Quit();
         }
 
+        public void PlayButtonSound()
+         => GameService.Instance.soundService.PlaySoundEffects(Audio.SoundType.ButtonSound);
+
         private void OnPlayButtonClicked()
         {
+            PlayButtonSound();
             int gameplayIndex = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadSceneAsync(gameplayIndex);
         }

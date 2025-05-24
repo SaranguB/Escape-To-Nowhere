@@ -9,7 +9,6 @@ namespace PowerUps
     {
         private PowerUpSO powerUpSO;
         private PowerUpPool powerUpPool;
-
         private bool isSpawning;
         private float spawnTimer;
         private BoxCollider powerUpSpawnArea;
@@ -40,11 +39,8 @@ namespace PowerUps
         {
             if (isSpawning)
             {
-
                 PowerUpType randomPowerUp = (PowerUpType)UnityEngine.Random.Range(0, Enum.GetValues(typeof(PowerUpType)).Length);
-
                 PowerUpController powerUp = FetchPowerUp(randomPowerUp);
-
                 powerUp.Configure(GetSpawnPosition());
             }
         }

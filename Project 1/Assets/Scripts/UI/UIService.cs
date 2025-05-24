@@ -1,5 +1,4 @@
 using Main;
-using System;
 using UnityEngine;
 
 namespace UI
