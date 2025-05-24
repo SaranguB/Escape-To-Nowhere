@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b680df05dd3d79428a8c4935e2378cb, type: 3}
   m_Name: EnemySO
   m_EditorClassIdentifier: 
-  spawnRate: 2
+  spawnRate: 1
   spawnOffset: 5
   rayOrigionYValue: 100
   enemyData:
   - enemyPrefab: {fileID: 2697840143927643326, guid: 2c8f7c931f2d4b741a56b9b779eee496, type: 3}
     enemyType: 0
-    speed: 8
+    speed: 10
     groundCheckDistance: 2

@@ -104,7 +104,7 @@ namespace Enemy
         private EnemyController FetchEnemy(EnemyType typeToFetch)
         {
             EnemyData fecthedData = enemySO.enemyData.Find(item => item.enemyType == typeToFetch);
-
+            Debug.Log(fecthedData.speed);
             switch (typeToFetch)
             {
                 case EnemyType.Viking:

@@ -12,12 +12,12 @@ namespace Enemy
         {
             enemyView = Object.Instantiate(enemyData.enemyPrefab);
             enemyView.SetController(this);
-            CreateStateMachine();
+            CreateStateMachine(enemyData);
             ChangeState(EnemyStates.Idle);
         }
 
-        private void CreateStateMachine()
-            => vikingStateMachine = new VikingStateMachine(this, enemyView.GetNavMeshAgent());
+        private void CreateStateMachine(EnemyData enemyData)
+            => vikingStateMachine = new VikingStateMachine(this, enemyView.GetNavMeshAgent(), enemyData);
 
         public override void ChangeState(EnemyStates state)
            => vikingStateMachine.ChangeState(state);

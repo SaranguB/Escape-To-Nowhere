@@ -6,6 +6,6 @@ namespace Audio
         GameplayBackground,
         ButtonSound,
         DeathSound,
-        LevelLostSound,
+        LevelEndSound,
     }
 }

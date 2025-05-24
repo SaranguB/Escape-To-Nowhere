@@ -60,11 +60,6 @@ namespace UI
             ScaleButton(quitButton.gameObject, menuSO.originalScale, menuSO.animationTime);
         }
 
-        public void SetController()
-        {
-
-        }
-
         void AnimateTitleBounce(GameObject title)
         {
             Vector3 originalPos = title.transform.localPosition;

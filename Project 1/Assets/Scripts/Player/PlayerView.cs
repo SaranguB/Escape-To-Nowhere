@@ -45,30 +45,20 @@ namespace Player
         {
             if (other.collider is not TerrainCollider && !other.gameObject.TryGetComponent<PowerUpView>(out _))
             {
-                if (!playerController.IsShiedActivated())
+                if (!playerController.IsShiedActivated() && playerController.GetCurrentGameState() == GameState.Gameplay)
                 {
                     StartCoroutine(OnPlayerDead());
                 }
             }
         }
 
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("Boundary"))
-            {
-                OnPlayerDead();
-            }
-        }
-
         private IEnumerator OnPlayerDead()
         {
-            playerController.SetPlayerDeathValues(transform.position);
+            playerController.SetPlayerDeathEffects(transform.position);
 
             yield return new WaitForSeconds(2f);
             playerController.OnPlayerDead();
         }
-
 
         private void FixedUpdate()
         {

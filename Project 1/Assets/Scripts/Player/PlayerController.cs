@@ -112,8 +112,10 @@ namespace Player
             return GameService.Instance.GetCurrentGameState();
         }
 
-        public void SetPlayerDeathValues(Vector3 position)
+        public void SetPlayerDeathEffects(Vector3 position)
         {
+            GameService.Instance.soundService.StopBackgroundSong();
+            GameService.Instance.soundService.PlaySoundEffects(Audio.SoundType.LevelEndSound);
             GameService.Instance.vfxService.PlayVFXAtPosition(VFX.VFXType.DeathEffect, position);
             GameService.Instance.ChangeGameState(GameState.GameOver);
         }

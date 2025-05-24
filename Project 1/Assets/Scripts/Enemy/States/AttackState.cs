@@ -10,19 +10,22 @@ namespace Enemy
         public T owner { get; set; }
 
         private NavMeshAgent navMeshAgent;
-
-        public AttackState(NavMeshAgent navMeshAgent)
+        private EnemyData enemyData;
+        public AttackState(NavMeshAgent navMeshAgent, EnemyData enemyData)
         {
+            this.enemyData = enemyData;
             this.navMeshAgent = navMeshAgent;
         }
 
         public void OnStateEnter()
         {
+            navMeshAgent.speed = enemyData.speed;
         }
 
         public void UpdateState()
         {
-            navMeshAgent.SetDestination(owner.GetPlayerPosition());
+            if (owner.GetGameState() == GameState.Gameplay)
+                navMeshAgent.SetDestination(owner.GetPlayerPosition());
         }
 
         public void FixedUpdateState()
