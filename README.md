@@ -17,7 +17,7 @@ Engine: Unity (URP)
 
 Language: C#
 
-Platform: Android (WebGL compatible)
+Platform: PC 
 
 Architecture: MVC (Model-View-Controller)
 
