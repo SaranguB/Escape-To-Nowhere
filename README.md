@@ -1,4 +1,4 @@
-Escape to Nowhere
+
 Escape to Nowhere is a fast-paced endless survival game developed in Unity where the player must continuously move to avoid enemies chasing them, while also dodging static obstacles like trees and rocks. The longer you survive, the higher your score.
 
 🎮 Gameplay
